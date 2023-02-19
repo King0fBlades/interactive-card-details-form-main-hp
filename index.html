@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- displays site properly based on user's device -->
+
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./images/favicon-32x32.png"
+		/>
+
+		<title>Frontend Mentor | Interactive card details form</title>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"
+			rel="stylesheet"
+		/>
+
+		<link rel="stylesheet" href="style.css" />
+		<!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+		<style>
+			.attribution {
+				font-size: 11px;
+				text-align: center;
+			}
+			.attribution a {
+				color: hsl(228, 45%, 44%);
+			}
+		</style>
+	</head>
+	<body>
+		<section class="card__section">
+			<div class="card__container">
+				<div class="card__front">
+					<div class="card__logo">
+						<img src="/images/card-logo.svg" alt="" />
+					</div>
+					<div class="card__information">
+						<p class="card__numbers">0000 0000 0000 0000</p>
+						<p class="card__holder">Jane Appleseed</p>
+						<p class="expiration__date">
+							<span class="expire__date-month">00</span>/<span
+								class="expire__date-year"
+								>00</span
+							>
+						</p>
+					</div>
+				</div>
+				<div class="card__back">
+					<p class="card__cvc">000</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="form__section">
+			<div class="form__container">
+				<form class="form">
+					<div class="form__field">
+						<label class="label" for="card__holder-form">Cardholder Name</label>
+						<input
+							class="input__text input__text-name"
+							type="text"
+							placeholder="e.g. Jane Appleseed"
+							name="card__holder-form"
+							id="card__holder-form"
+							maxlength="26"
+							minlength="4"
+							autocomplete="cc-name"
+							oninput="displayName()"
+						/>
+						<p class="error__msg"></p>
+					</div>
+					<div class="form__field">
+						<label class="label" for="card__numbers-form">Card Number</label>
+						<input
+							class="input__text input__text-numbers"
+							type="text"
+							placeholder="e.g. 1234 5678 9123 0000"
+							name="card__numbers-form"
+							id="card__numbers-form"
+							maxlength="16"
+							minlength="16"
+							autocomplete="cc-number"
+							oninput="displayNumbers()"
+						/>
+						<p class="error__msg"></p>
+					</div>
+					<div class="form__field">
+						<div class="form__row">
+							<div>
+								<label class="label label__date" for="input__date"
+									>Exp. Date (MM/YY)</label
+								>
+								<div class="form__item">
+									<input
+										class="input__text input__date input__text-month"
+										type="text"
+										name="input__date"
+										id="input__date"
+										placeholder="MM"
+										maxlength="2"
+										minlength="2"
+										autocomplete="cc-exp-month"
+										oninput="displayMonth()"
+									/>
+
+									<input
+										class="input__text input__date input__text-year"
+										type="text"
+										name="input__date"
+										id="input__date"
+										placeholder="YY"
+										maxlength="2"
+										minlength="2"
+										autocomplete="cc-exp-year"
+										oninput="displayYear()"
+									/>
+									<p class="error__msg"></p>
+								</div>
+							</div>
+							<div>
+								<label class="label label__cvc" for="card__cvc-form">CVC</label>
+								<div>
+									<input
+										class="input__text input__cvc"
+										type="text"
+										placeholder="e.g. 123"
+										name="card__cvc-form"
+										id="card__cvc-form"
+										maxlength="3"
+										minlength="3"
+										autocomplete="cc-csc"
+										oninput="displayCvc()"
+									/>
+									<p class="error__msg"></p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<button class="btn confirm-btn">Confirm</button>
+				</form>
+			</div>
+
+			<div class="completed__container hidden">
+				<img
+					src="/images/icon-complete.svg"
+					alt="Complete icon"
+					class="icon__complete"
+				/>
+				<h2>Thank you!</h2>
+				<p>We've added your card details</p>
+				<button class="btn continue-btn">Continue</button>
+			</div>
+		</section>
+
+		<script src="script.js"></script>
+	</body>
+</html>
